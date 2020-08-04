@@ -31,5 +31,4 @@ public class Employee implements Comparable<Employee> {
 		return name.compareTo(o.getName());
 	}
 
-	
 }
