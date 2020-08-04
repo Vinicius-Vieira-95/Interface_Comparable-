@@ -11,33 +11,32 @@ import entities.Employee;
 
 class Program {
 
+	
 	public static void main(String[] args) {
-		
-		
-		List<Employee>employee = new ArrayList<>();
+
+		List<Employee> employee = new ArrayList<>();
 
 		String path = "C:\\temp\\in.txt";
 
-		try(BufferedReader br = new BufferedReader(new FileReader(path))){
-			
+		try (BufferedReader br = new BufferedReader(new FileReader(path))) {
+
 			String employeeCsv = br.readLine();
-			while(employeeCsv != null) {
-				String [] fields = employeeCsv.split(",");
+			while (employeeCsv != null) {
+				String[] fields = employeeCsv.split(",");
 				employee.add(new Employee(fields[0], Double.parseDouble(fields[1])));
-				employeeCsv = br.readLine();	
+				employeeCsv = br.readLine();
 			}
-			
+
 			Collections.sort(employee);
-			for(Employee emp: employee) {
-				System.out.println(emp.getName()+", "+ emp.getSalary());
+			for (Employee emp : employee) {
+				System.out.println(emp.getName() + ", " + emp.getSalary());
 			}
-			
-			
+
 		} catch (IOException e) {
-			System.out.println("erro"+ e.getMessage());
+			System.out.println("erro" + e.getMessage());
 			e.printStackTrace();
 		}
-		
+
 	}
 
 }
